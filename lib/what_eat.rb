@@ -1,7 +1,4 @@
-require "what_eat/version"
-
-module WhatEat
-  class Error < StandardError; end
+require 'what_eat/printing'
 require 'net/http'
 require 'json'
  
@@ -11,8 +8,6 @@ module WhatShouldIEat
     recipes = JSON.parse(result)
     name = recipes.first['items'].first['label']
     url = recipes.first['items'].first['url']
-    puts name
-    puts url
+    Printing.print name, url
   end
-end
 end
